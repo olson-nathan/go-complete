@@ -6,15 +6,28 @@ import "fmt"
 type person struct {
 	firstName string
 	lastName  string
+	contact   contactInfo
+}
+
+type contactInfo struct {
+	email string
+	zip   int
 }
 
 // Main.
 func main() {
 	// Declare Alex as a person.
-	alex := person{firstName: "Alex", lastName: "Anderson"}
+	alex := person{
+		firstName: "Alex",
+		lastName:  "Anderson",
+		contact: contactInfo{
+			email: "aanderson@gmail.com",
+			zip:   89436,
+		},
+	}
 
 	// Print.
-	fmt.Println(alex)
+	fmt.Printf("%+v\n", alex)
 
 	var mary person
 
@@ -25,7 +38,9 @@ func main() {
 	// Assign.
 	mary.firstName = "Mary"
 	mary.lastName = "Magdelene"
+	mary.contact.email = "mmagdelene@gmail.com"
+	mary.contact.zip = 1234
 
 	// Print.
-	fmt.Println(mary)
+	fmt.Printf("%+v\n", mary)
 }
