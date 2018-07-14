@@ -7,6 +7,7 @@ type person struct {
 	firstName string
 	lastName  string
 	contact   contactInfo
+	// contactInfo will declare a field of contactInfo of type contactInfo
 }
 
 type contactInfo struct {
