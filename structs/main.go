@@ -20,7 +20,7 @@ func main() {
 
 	// Print out mary.
 	// firstName and lastName are zero value (string "")
-	fmt.Println(mary)
+	fmt.Printf("%+v\n", mary)
 
 	// Assign.
 	mary.firstName = "Mary"
