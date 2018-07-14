@@ -28,20 +28,9 @@ func main() {
 	}
 
 	// Print.
-	fmt.Printf("%+v\n", alex)
+	alex.print()
+}
 
-	var mary person
-
-	// Print out mary.
-	// firstName and lastName are zero value (string "")
-	fmt.Printf("%+v\n", mary)
-
-	// Assign.
-	mary.firstName = "Mary"
-	mary.lastName = "Magdelene"
-	mary.contact.email = "mmagdelene@gmail.com"
-	mary.contact.zip = 1234
-
-	// Print.
-	fmt.Printf("%+v\n", mary)
+func (p person) print() {
+	fmt.Printf("%+v\n", p)
 }
