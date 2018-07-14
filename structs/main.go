@@ -15,4 +15,17 @@ func main() {
 
 	// Print.
 	fmt.Println(alex)
+
+	var mary person
+
+	// Print out mary.
+	// firstName and lastName are zero value (string "")
+	fmt.Println(mary)
+
+	// Assign.
+	mary.firstName = "Mary"
+	mary.lastName = "Magdelene"
+
+	// Print.
+	fmt.Println(mary)
 }
