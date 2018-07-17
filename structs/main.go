@@ -27,12 +27,15 @@ func main() {
 		},
 	}
 
-	alex.updateFirstName("Jerry")
+	// Update firstName.
+	alex.updateFirstName("Tommy")
 
 	// Print.
 	alex.print()
 }
 
+// Alex is a person struct and not a pointer to person
+// Go will automatically translate the variable alex to a pointer.
 func (p *person) updateFirstName(newFirstName string) {
 	p.firstName = newFirstName
 }
