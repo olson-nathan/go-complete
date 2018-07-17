@@ -6,6 +6,7 @@ import (
 
 // NOTE: an interface is not a concrete type.
 // An interface is an interface type.
+// Interfaces are implicit in Go, not explicit.
 type bot interface {
 	getGreeting() string
 }
