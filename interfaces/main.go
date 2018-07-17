@@ -4,10 +4,14 @@ import (
 	"fmt"
 )
 
+// NOTE: an interface is not a concrete type.
+// An interface is an interface type.
 type bot interface {
 	getGreeting() string
 }
 
+// NOTE: a map, struct, string is a concrete type.
+// This is because we can create a value out of it.
 type englishBot struct{}
 
 type spanishBot struct{}
