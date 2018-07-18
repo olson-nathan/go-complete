@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 )
+
+type logWriter struct{}
 
 func main() {
 	// Make request to google.com
@@ -17,11 +20,15 @@ func main() {
 
 	defer resp.Body.Close()
 
-	bs := make([]byte, 99999)
+	lw := logWriter{}
 
-	// body, err := ioutil.ReadAll(resp.Body)
-	resp.Body.Read(bs)
+	io.Copy(lw, resp.Body)
+}
 
-	// Print out response.
+func (logWriter) Write(bs []byte) (int, error) {
 	fmt.Println(string(bs))
+
+	fmt.Println("Just wrote out this many bytes", len(bs))
+
+	return len(bs), nil
 }
