@@ -15,22 +15,30 @@ func main() {
 		"http://golang.org",
 	}
 
+	c := make(chan string)
+
 	// Loop and check links.
 	for _, link := range links {
-		checkLink(link)
+		go checkLink(link, c)
+	}
+
+	for {
+		go checkLink(<-c, c)
 	}
 }
 
-func checkLink(link string) {
+func checkLink(link string, c chan string) {
 	// Get.
 	_, err := http.Get(link)
 
 	// Err control flow.
 	if err != nil {
-		fmt.Println(link, " might be down!")
+		c <- link
+		fmt.Println(link, "might be down!")
 		return
 	}
 
 	// Print.
 	fmt.Println(link, "is up!")
+	c <- link
 }
