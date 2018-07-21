@@ -27,10 +27,10 @@ func main() {
 	for l := range c {
 		// Run go routine.
 		// Execute with link string and channel of string.
-		go func(l string, c chan string) {
+		go func(link string) {
 			time.Sleep(5 * time.Second)
-			checkLink(l, c)
-		}(l, c)
+			checkLink(link, c)
+		}(l)
 	}
 }
 
